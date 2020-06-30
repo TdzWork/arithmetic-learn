@@ -18,6 +18,9 @@ package tdz.learn.`20-6-30`
  */
 class Solution {
     companion object {
+        /**
+         * 交易次数最少，算法较复杂，利益最大化（如果在有手续费的情况下）
+         */
         fun maxProfit(prices: IntArray): Int {
             var minFlag = false
             var min: Int = 0
@@ -48,6 +51,19 @@ class Solution {
               if(prices[1] > prices[0]){
                   income = prices[1] - prices[0]
               }
+            }
+            return income
+        }
+
+        /**
+         * 交易次数最多，算法最简单
+         */
+        fun maxProfit02(prices: IntArray): Int {
+            var income: Int = 0
+            for (i in 1 until  prices.size){
+                if(prices[i]>prices[i-1]){
+                    income += prices[i]-prices[i-1]
+                }
             }
             return income
         }
